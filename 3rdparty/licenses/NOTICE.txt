@@ -1,0 +1,9 @@
+The pdfium folder holds PDFium, which this plugin carries but did not write: the unmodified prebuilt
+library of https://github.com/bblanchon/pdfium-binaries, fetched by 3rdparty/build.sh in the plugin's
+repository. PDFium is under the BSD-3-Clause licence; the third-party code built into it — FreeType,
+libjpeg-turbo, libpng, zlib, OpenJPEG, Little CMS, ICU among them — under their own licences. All of
+them follow, from the licenses folder of that release.
+
+Portions of this software are copyright (c) The FreeType Project (www.freetype.org).
+All rights reserved.
+
