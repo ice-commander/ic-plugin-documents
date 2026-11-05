@@ -3,7 +3,7 @@
 # into 3rdparty/out/<system>/pdfium, with THIRD-PARTY-<system>.txt. Run by hand, only when RELEASE changes:
 # build-release.sh takes out/ as it is, so the files keep their md5 and the updater does not fetch them again.
 #
-#   bash 3rdparty/build.sh [macos] [linux] [windows]     none named: all three
+#   bash 3rdparty/build.sh [macos] [linux] [windows] [android]     none named: the three desktops
 #
 # RELEASE matches the PDFium API that pdfium-render binds (its pdfium_latest feature). Each archive is checked against
 # the sha256 GitHub publishes for it and kept in 3rdparty/cache.
@@ -27,8 +27,12 @@ for platform in $platforms; do
             archive=pdfium-win-x64.tgz inside=bin/pdfium.dll
             sha256=73cc0de638ac2095e7445bf56a38200a5b7c7ca0e9f4ba144598f2457377ac08
             ;;
+        android)
+            archive=pdfium-android-arm64.tgz inside=lib/libpdfium.so
+            sha256=16d23bb86c4188d59326dc509938f59df3c417ecfdd3d2ca2f160dc5bd49a839
+            ;;
         *)
-            echo "unknown system $platform: macos, linux or windows" >&2
+            echo "unknown system $platform: macos, linux, windows or android" >&2
             exit 1
             ;;
     esac
