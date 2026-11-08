@@ -95,7 +95,9 @@ fn read_whole(source: IcFsSource, path: &CStr) -> Option<Vec<u8>> {
     if host.is_null() {
         return None;
     }
-    let stream = unsafe { ((*host).fs_open)(source, path.as_ptr(), IC_OPEN_READ) };
+    let stream = unsafe {
+        ((*host).fs_open)(source, path.as_ptr(), IC_OPEN_READ, ic_plugin_api::IC_SIZE_UNKNOWN)
+    };
     if stream.is_null() {
         return None;
     }
